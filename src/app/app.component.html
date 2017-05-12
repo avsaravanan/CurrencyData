@@ -1,3 +1,35 @@
 <h1>
   {{title}}
 </h1>
+<div class="container">
+  <div class="table-responsive">
+    <table class="table table-hover" id="metric">
+      <thead>
+        <tr>
+          <th data-sort-initial="descending">Company Code</th>
+          <th>Account</th>
+          <th>City</th>
+          <th>Country Code</th>
+          <th>Credit Rating</th>
+          <th>Currency</th>
+          <th>Amount</th>
+          <th>Total Value ($USD)</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let curData of currencyData | async">
+          <td><a>{{curData.CompanyCode}}</a></td>
+          <td>{{curData.Account}}</td>
+          <td>{{curData.City}}</td>
+          <td >{{curData.Country}}</td>
+          <td>{{curData.CreditRating}}</td>
+          <td >{{curData.Currency}}</td>
+          <td>{{curData.Amount }}</td>
+          <td>{{curData.Amount | total:curData.Currency}}</td>
+
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
